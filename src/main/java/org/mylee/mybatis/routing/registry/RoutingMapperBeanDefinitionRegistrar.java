@@ -49,7 +49,7 @@ public class RoutingMapperBeanDefinitionRegistrar implements BeanFactoryPostProc
                 if (rm == null) continue;
 
                 String logicalId = rm.value().length == 0 ? itf.getSimpleName() : rm.value()[0];
-                String dbType = rm.dbType() == null || rm.dbType().length == 0 ? null : rm.dbType()[0];
+                String dbType = rm.dbType() == null || rm.dbType().length == 0 ? null : rm.dbType()[0].name();
                 if (dbType == null) {
                     throw new IllegalArgumentException();
                 }
@@ -65,7 +65,7 @@ public class RoutingMapperBeanDefinitionRegistrar implements BeanFactoryPostProc
                 if (rm == null) continue;
 
                 String logicalId = rm.value().length == 0 ? null : rm.value()[0];
-                String dbType = rm.dbType() == null || rm.dbType().length == 0 ? null : rm.dbType()[0];
+                String dbType = rm.dbType() == null || rm.dbType().length == 0 ? null : rm.dbType()[0].name();
                 if (logicalId == null || dbType == null) {
                     throw new IllegalArgumentException();
                 }
@@ -109,7 +109,7 @@ public class RoutingMapperBeanDefinitionRegistrar implements BeanFactoryPostProc
 
             beanDefinitionBuilder.addPropertyValue("dispatchOriginMapperMappings", dispatchOriginMapperMappings);
             beanDefinitionBuilder.addPropertyValue("dispatchImplMapperMappings", customImplVariants.get(logicalId));
-            beanDefinitionBuilder.addPropertyValue("dispatchTo", "${org-mylee.mybatis-routing.dispatche-to}");
+            beanDefinitionBuilder.addPropertyValue("dispatchTo", "${org-mylee.mybatis-routing.dispatche-to:postgresql}");
 
 
             AbstractBeanDefinition routingBd = beanDefinitionBuilder.getBeanDefinition();

@@ -14,5 +14,10 @@ public @interface RoutingMapper {
 
     String[] value() default {};
 
-    String[] dbType();
+    DbType[] dbType();
+
+    enum DbType {
+        postgresql,
+        mysql,
+    }
 }
