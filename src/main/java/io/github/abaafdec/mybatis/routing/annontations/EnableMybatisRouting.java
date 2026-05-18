@@ -1,6 +1,6 @@
-package org.mylee.mybatis.routing.annontations;
+package io.github.abaafdec.mybatis.routing.annontations;
 
-import org.mylee.mybatis.routing.registry.RoutingMapperBeanDefinitionRegistrar;
+import io.github.abaafdec.mybatis.routing.registry.RoutingMapperBeanDefinitionRegistrar;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

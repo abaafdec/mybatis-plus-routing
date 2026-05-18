@@ -1,4 +1,4 @@
-package org.mylee.mybatis.routing.annontations;
+package io.github.abaafdec.mybatis.routing.annontations;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

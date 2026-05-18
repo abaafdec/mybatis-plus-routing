@@ -1,4 +1,4 @@
-package org.mylee.mybatis.routing.proxy;
+package io.github.abaafdec.mybatis.routing.proxy;
 
 import org.springframework.beans.factory.BeanFactory;
 
@@ -51,7 +51,10 @@ public class RoutingMapperInvocationHandler implements InvocationHandler {
         String dbType = this.dispatchTo;
         Object dispatch_impl_obj = resolveDispatchImpl(dbType);
         if (dispatch_impl_obj != null) {
-            return invokeCompatibleMethod(dispatch_impl_obj, method, args);
+            Method try_find_compatible = tryFindCompatibleMethod(dispatch_impl_obj.getClass(), method);
+            if (try_find_compatible != null) {
+                return try_find_compatible.invoke(dispatch_impl_obj, args);
+            }
         }
 
         Object dispatchMapper = resolveDispatchMapper(dbType);
@@ -97,6 +100,14 @@ public class RoutingMapperInvocationHandler implements InvocationHandler {
                 sourceMethod.getName(),
                 sourceMethod.getParameterTypes()
         );
+    }
+
+    private Method tryFindCompatibleMethod(Class<?> targetClass, Method sourceMethod) {
+        try {
+            return findCompatibleMethod(targetClass, sourceMethod);
+        } catch (NoSuchMethodException e) {
+            return null;
+        }
     }
 
     private Object handleObjectMethod(Object proxy, Method method, Object[] args) {

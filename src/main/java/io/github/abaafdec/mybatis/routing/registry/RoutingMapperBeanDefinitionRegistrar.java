@@ -1,8 +1,8 @@
-package org.mylee.mybatis.routing.registry;
+package io.github.abaafdec.mybatis.routing.registry;
 
-import org.mylee.mybatis.routing.annontations.Routing;
-import org.mylee.mybatis.routing.annontations.RoutingMapper;
-import org.mylee.mybatis.routing.proxy.RoutingMapperFactoryBean;
+import io.github.abaafdec.mybatis.routing.annontations.Routing;
+import io.github.abaafdec.mybatis.routing.annontations.RoutingMapper;
+import io.github.abaafdec.mybatis.routing.proxy.RoutingMapperFactoryBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.config.BeanDefinition;

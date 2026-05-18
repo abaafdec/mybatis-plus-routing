@@ -1,4 +1,4 @@
-package org.mylee.mybatis.routing.proxy;
+package io.github.abaafdec.mybatis.routing.proxy;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
