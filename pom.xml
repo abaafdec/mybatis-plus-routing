@@ -4,9 +4,37 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mylee</groupId>
-    <artifactId>mybatis-routing</artifactId>
+    <groupId>io.github.abaafdec</groupId>
+    <artifactId>mybatis-plus-routing</artifactId>
     <version>1.0.0</version>
+
+    <description>In a "spring" project, by using this project, the actual execution content can be proxied to another method without modifying the call points that invoke "mybatis-plus" MapperBean.</description>
+    <url>https://github.com/abaafdec/mybatis-plus-routing</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+
+    <developers>
+        <developer>
+            <id>abaafdec</id>
+            <name>abaafdec</name>
+            <email>chiliice.org@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/abaafdec/mybatis-plus-routing.git</connection>
+        <developerConnection>scm:git:https://github.com/abaafdec/mybatis-plus-routing.git</developerConnection>
+        <url>https://github.com/abaafdec/mybatis-plus-routing</url>
+    </scm>
+
+
+
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -21,5 +49,35 @@
             <version>6.2.7</version>
         </dependency>
     </dependencies>
+
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>org-push-central</publishingServerId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
