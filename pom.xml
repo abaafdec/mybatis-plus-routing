@@ -5,11 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.abaafdec</groupId>
-    <artifactId>mybatis-plus-routing</artifactId>
+    <artifactId>mybatis-routing</artifactId>
+    <name>${artifactId}</name>
     <version>1.0.0</version>
 
-    <description>In a "spring" project, by using this project, the actual execution content can be proxied to another method without modifying the call points that invoke "mybatis-plus" MapperBean.</description>
-    <url>https://github.com/abaafdec/mybatis-plus-routing</url>
+    <description>In a "spring" project, by using this project, the actual execution content can be proxied to another method without modifying the call points that invoke "mybatis" MapperBean.</description>
+    <url>https://github.com/abaafdec/mybatis-routing</url>
 
     <licenses>
         <license>
@@ -28,9 +29,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/abaafdec/mybatis-plus-routing.git</connection>
-        <developerConnection>scm:git:https://github.com/abaafdec/mybatis-plus-routing.git</developerConnection>
-        <url>https://github.com/abaafdec/mybatis-plus-routing</url>
+        <connection>scm:git:https://github.com/abaafdec/mybatis-routing.git</connection>
+        <developerConnection>scm:git:https://github.com/abaafdec/mybatis-routing.git</developerConnection>
+        <url>https://github.com/abaafdec/mybatis-routing</url>
     </scm>
 
 
@@ -54,6 +55,32 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.7.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
